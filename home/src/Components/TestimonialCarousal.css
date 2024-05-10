@@ -1,0 +1,46 @@
+.testimonial-carousel {
+    width: 80%;
+    margin: auto;
+    margin-top: 200px;
+}
+
+.purple-text {
+    color: #B752FD;
+}
+
+.testimonial {
+    padding: 20px;
+    text-align: center;
+}
+
+.testimonial-carousel h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.star {
+    color: gold;
+}
+
+.feedback {
+    font-style: italic;
+}
+
+.user-photo { 
+    width: 100px; 
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%; 
+    margin: auto; 
+    margin-bottom: 10px;
+}
+
+.user-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}

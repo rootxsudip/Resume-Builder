@@ -1,0 +1,96 @@
+.hero {
+    display: flex;
+    align-items: center;
+}
+
+.hero-section {
+    margin-top: 20px; 
+}
+
+.video-container {
+    flex: 1;
+    max-height: 50%; 
+    overflow: hidden; 
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-video {
+    width: 700%;
+    max-height: 500px; 
+}
+
+.text-container {
+    flex: 1.5;
+    padding: 20px 30px; 
+    text-align: center;
+}
+
+.text-container h1 {
+    font-size: 50px; 
+    margin-bottom: 30px; 
+}
+
+.text-container p {
+    font-size: 20px; 
+    margin-bottom: 50px; 
+}
+
+.small {
+    font-weight: 500;
+}
+
+.create-button {
+    background-color: #DF2CDE;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.text-container .small {
+    margin-top: 60px; 
+}
+
+@keyframes slideshow {
+    from {transform: translateX(0);}
+    to {transform: translateX(-100%);}
+}
+
+.logo{
+    height: 70px; 
+    width: 280px; 
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 120px; 
+    right: 300px;
+    z-index: 0;
+}
+
+.logo-slide:hover .slide {
+    animation-play-state: paused;
+}
+
+.logo-slide {
+    height: 300px;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    left: 2px;
+}
+
+.slide {
+   display: inline-block;
+   animation: 15s slideshow infinite linear;
+}
+
+.slide img {
+    height: 100px;
+    width: auto;
+    margin: 0 20px;
+}

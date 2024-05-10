@@ -1,0 +1,49 @@
+.PickTemplate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    margin-top: 60px;
+    padding-top: 100px;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.content p {
+    padding: 15px;
+}
+
+.photo {
+    margin-top: 30px;
+    display: flex;
+}
+
+.template {
+    margin: 0 10px; 
+    text-align: center;
+}
+
+.template img {
+    width: 200px; 
+    height: auto;
+}
+
+.discover-button {
+    background-color: #DF2CDE;
+    color: #ffff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 25px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}

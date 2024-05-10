@@ -1,0 +1,36 @@
+.heading {
+  text-align: center;
+    margin-top: 250px;
+}
+
+.purple-text {
+    color: #B752FD;
+}
+
+.reasons-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .reason {
+    width: calc(50% - 10px);
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .reason img {
+    width: 260px;
+    height: 160px;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .reason {
+      width: calc(100% - 20px);
+    }
+  }
+  
