@@ -1,7 +1,9 @@
 import React from 'react'
 import Navbar from './navbar/Navbar';
 import Footer from './footer/Footer'
+import Menu from './Menu/Menu';
 import { Outlet } from 'react-router-dom';
+import "../../../styles/global.scss";
 import {
     QueryClient,
     QueryClientProvider,
@@ -10,13 +12,13 @@ import {
 export default function Layout() {
     const queryClient = new QueryClient();
   return (
-    <div className="main">
+    <div className="adminmain">
         <Navbar />
-        <div className="container">
-          <div className="menuContainer">
-            {/* <Menu /> */}
+        <div className="adminContainer">
+          <div className="adminMenuContainer">
+            <Menu />
           </div>
-          <div className="contentContainer">
+          <div className="adminContentContainer">
             <QueryClientProvider client={queryClient}>
               <Outlet />
             </QueryClientProvider>

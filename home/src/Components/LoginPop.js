@@ -10,10 +10,9 @@ const SIGNUP_URL = 'http://localhost:8080/auth/signup';
 const LoginPop = ({setShowLogin}) => {
 
     const { auth, setAuth } = useAuth();
-
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from.pathname || "/dashboard";
+    const from = location.state?.from.pathname || "/templates";
 
     const [currState,setCurrState] = useState("Sign Up")
     const userRef = useRef();
@@ -26,6 +25,7 @@ const LoginPop = ({setShowLogin}) => {
     useEffect(()=>{
         setErrMsg('');
     },[email,password])
+
 
     const submitHandler = async (e) =>{
         e.preventDefault()
@@ -88,6 +88,12 @@ const LoginPop = ({setShowLogin}) => {
     }
     }
 
+    const handleForgotPassword = () => {
+        navigate('/forgot-password'); 
+        setShowLogin(false);
+    };
+
+
   return (
     <>
     {!auth.accessToken ? (
@@ -116,6 +122,11 @@ const LoginPop = ({setShowLogin}) => {
                 placeholder='Password'
                 required/>
             </div>
+            {currState === "Login" && (
+                            <p>
+                                <span onClick={handleForgotPassword} className="forgot-password-link">Forgot password?</span>
+                            </p>
+                        )}
             <button>{currState==="Sign Up"?"Create an account":"Login"}</button>
             <div className="login-popup-condition">
                 <input type='checkbox' required/>

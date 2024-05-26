@@ -1,0 +1,27 @@
+/* src/A4Page.css */
+.a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    margin: 10mm auto;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+  }
+  
+  @media print {
+    body, html {
+      width: 210mm;
+      height: 297mm;
+    }
+    .a4-page {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+  
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  

@@ -2,7 +2,7 @@ import "./footer.scss"
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <div className="adminFooter">
       <span>Admin</span>
       <span>© ResumeSnap Admin Dashboard</span>
     </div>

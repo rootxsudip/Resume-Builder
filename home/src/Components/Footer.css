@@ -1,53 +1,47 @@
-/* Footer.css */
-
-.footer-container {
-  background-color: #4B0082; /* Dark purple color */
-  color: #FFFFFF; /* White text */
+.footer {
+  background: linear-gradient(91.7deg, rgb(50, 25, 79) -4.3%, rgb(122, 101, 149) 101.8%);
+  color: #fff;
   padding: 20px;
   display: flex;
-  flex-direction: column; /* Switch to column layout */
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  min-height: 200px; /* Ensure footer stays at the bottom */
 }
 
-.logo-container {
-  align-self: flex-start; /* Align logo to the left */
-  margin-bottom: 20px; /* Adjust margin to shift the logo downwards */
+.footer-left {
+  flex: 1;
 }
 
-.logo-container img {
-  margin-right: 10px; /* Add spacing between logo and content */
+.footer-right {
+  flex: 2;
 }
 
-.footer-content {
-  text-align: center;
+.footer img {
+  border-radius: 15px;
+}
+
+.footer-logo {
+  width: 200px; 
 }
 
 .footer-links {
-  margin-bottom: 5px; /* Adjust margin to move links more upwards */
-}
-
-.footer-links a {
-  color: #FFFFFF;
-  text-decoration: none;
-  margin: 5px 10px; /* Adjust margin to increase distance between links */
-  transition: color 0.3s ease; /* Add transition for smooth color change */
-}
-
-.footer-links a:hover {
-  color: #FFD700; /* Change color on hover */
-}
-
-.centered-text {
-  margin-bottom: 10px; /* Add margin between "Made with love" and copyright */
-}
-
-.centered-text p {
+  list-style-type: none;
+  padding: 0;
   margin: 0;
 }
 
-.copyright-text {
-  font-size: 14px;
+.footer-links li {
+  display: inline;
+  margin-right: 70px; 
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-statement {
+  flex: 1;
+  margin-top: 40px;
+  text-align: center;
+  
 }

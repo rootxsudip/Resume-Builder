@@ -2,24 +2,22 @@ import React from 'react';
 import './Footer.css';
 const Footer = () => {
   return (
-    <footer className="footer-container">
-      <div className="logo-container">
-        <img src="/ResumeLogo.png" alt="Company Logo" style={{ maxWidth: '40%', height: 'auto' }} />
+    <footer className="footer">
+      <div className="footer-left">
+        <img src="/ResumeLogo.png" alt="Company Logo" style={{ maxWidth: '40%', height: 'auto'}} />
       </div>
       <div className="footer-content">
-        <div className="footer-links">
-          <a href="/about">About Us</a>
-          <a href="/pricing">Pricing</a>
-          <a href="/terms">Terms and Conditions</a>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/contact">Contact Us</a>
-        </div>
-        <div className="centered-text">
+        <ul className="footer-links">
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/terms">Terms and Conditions</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div className="footer-statement">
           <p>Made with ❤️ in Kolkata, India</p>
+          <p>Copyright &copy; {new Date().getFullYear()} ResumeSnap. All rights reserved.</p>
         </div>
-      </div>
-      <div className="copyright-text">
-        <p>&copy; {new Date().getFullYear()} ResumeSnap. All rights reserved.</p>
       </div>
     </footer>
   );
