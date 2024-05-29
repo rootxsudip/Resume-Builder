@@ -33,6 +33,12 @@ export const menu = [
           url: "/admin/templates",
           icon: "product.svg",
         },
+        {
+          id: "Orders",
+          title: "Orders",
+          url: "/admin/orders",
+          icon: "product.svg",
+        },
       ],
     },
     // {

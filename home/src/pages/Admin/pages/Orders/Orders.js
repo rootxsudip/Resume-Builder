@@ -3,14 +3,15 @@ import axios from 'axios'
 // import DataTable from '../../components/DataTable/DataTable'
 import { Box, Typography, Avatar, TextField, Button } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import './users.scss'
-import UsersActions from './UsersActions'
+import './orders.scss'
+import OrderActions from './OrderActions'
 import useAuth from '../../../../hooks/useAuth'
 import shortid from 'shortid'
-export default function Users() {
+
+export default function Orders() {
 
   const { auth, setAuth } = useAuth();
-  const [users, setUsers] = useState([]);
+  const [orders, setOrders] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [rowId,setRowId] = useState(null);
 
@@ -18,15 +19,15 @@ export default function Users() {
   const handleSearch = async () => {
     if (searchQuery === '') {
       // If search query is empty, fetch all users
-      await fetchUsers();
+      await fetchOrders();
     }
     try {
-      const response = await axios.get(`http://localhost:8080/api/admin/user?user=${searchQuery}`, {
+      const response = await axios.get(`http://localhost:8080/api/admin/order?user=${searchQuery}`, {
         headers: {
           Authorization: `Bearer ${auth.accessToken}`,
         },
       });
-      setUsers([response.data]); // Update users state with data from the backend
+      setOrders(response.data); // Update users state with data from the backend
       console.log(response.data)
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -36,7 +37,7 @@ export default function Users() {
 
   const clearSearch = () => {
     setSearchQuery("")
-    fetchUsers();
+    fetchOrders();
   }
 
   const handleSearchChange = (event) => {
@@ -44,45 +45,47 @@ export default function Users() {
   };
 
 
-   // Fetch users from your backend API
-   const fetchUsers = async () => {
+   // Fetch orders from your backend API
+   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/admin/users', {
+      const response = await axios.get('http://localhost:8080/api/admin/orders', {
         headers: {
           Authorization: `Bearer ${auth.accessToken}`,
           // Authorization: `Bearer test`,
         },
       });
-      setUsers(response.data); // Update users state with data from the backend
+      setOrders(response.data); // Update users state with data from the backend
     } catch (error) {
-      console.error('Error fetching users:', error);
+      console.error('Error fetching orders:', error);
       // Optionally, you can handle errors and display a message to the user
     }
   };
 
   useEffect(() => {
-    fetchUsers(); // Call the fetchUsers function when the component mounts
+    fetchOrders(); // Call the fetchUsers function when the component mounts
   }, []); // Empty dependency array ensures the effect runs only once, when the component mounts
 
 
   const columns = useMemo(()=>[
-    {field: 'profile_pic',headerName: 'Avatar', width: 150,  renderCell: (params) => <Avatar src={params.row.image} />,
-    sortable: false,
-    filterable: false,},
     {field: 'id',headerName: 'Id', width: 150},
-    {field: 'fullName',headerName: 'Name', width: 170},
-    {field: 'email',headerName: 'Email', width: 200, editable: true, cellClassName: 'editable-cell',
+    {field: 'orderId',headerName: 'OrderId', width: 170},
+    {field: 'orderStatus',headerName: 'OrderStatus', width: 200, editable: true, cellClassName: 'editable-cell',
     onEditCommit: (params) => {
       const { id, value } = params;
     },
     },
-    {field: 'isPro',headerName: 'Subscription', width: 150},
-    // {field: 'role',headerName: 'Role', width: 100},
-    {field: 'actions', headerName: 'Actions', renderCell:params=><UsersActions {...{params, rowId, setRowId, fetchUsers}}/>}
+    {field: 'userId',headerName: 'UserId', width: 150},
+    {field: 'userEmail',headerName: 'Email', width: 200},
+    {field: 'userPlan',headerName: 'UserPlan', width: 150 , width: 200, editable: true, cellClassName: 'editable-cell',
+    onEditCommit: (params) => {
+      const { id, value } = params;
+    },
+    },
+    {field: 'actions', headerName: 'Actions', renderCell:params=><OrderActions {...{params, rowId, setRowId, fetchOrders}}/>}
   ],[rowId])
 
   return (
-    <div className='users'>
+    <div className='orders'>
       <div className='info'>
         <Box
         sx={{
@@ -95,7 +98,7 @@ export default function Users() {
           component='h3'
           sx={{textAlign:'center', mt:3, mb:3}}
           >
-            Manage Users
+            View/Manage Orders
           </Typography>
           <TextField
           id="search-input"
@@ -129,7 +132,7 @@ export default function Users() {
           <DataGrid
           className='dataGrid'
           columns={columns}
-          rows={users}
+          rows={orders}
           // getRowId={(row) => shortid.generate()}
           initialState={{
             pagination: {

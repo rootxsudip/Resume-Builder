@@ -9,6 +9,7 @@ const SIGNUP_URL = 'http://localhost:8080/auth/signup';
 
 const LoginPop = ({setShowLogin}) => {
 
+    const [showAlert, setShowAlert] = useState(false);
     const { auth, setAuth } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
@@ -31,6 +32,7 @@ const LoginPop = ({setShowLogin}) => {
         e.preventDefault()
         // console.log("submit")
         if(currState==="Sign Up"){
+            if(password.length>=8){
             try{
                 const response = await axios.post(SIGNUP_URL,
                     JSON.stringify({fullName,email,password}),
@@ -57,6 +59,11 @@ const LoginPop = ({setShowLogin}) => {
                     setErrMsg('Signup Failed');
                 }
                 errRef.current.focus();
+            }
+            }
+            else{
+                alert("Password not valid")
+                setShowAlert(true)
             }
         }else{
         try{

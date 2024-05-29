@@ -29,6 +29,7 @@ import Pricing from './Components/Pricing';
 import ResetPassword from './Components/ResetPassword';
 import ForgotPassword from './Components/ForgotPassword';
 // import AdminLayout from './Routes/AdminLayout';
+import Orders from './pages/Admin/pages/Orders/Orders';
 const router = createBrowserRouter(
   createRoutesFromElements(
     // <Route path='/' element={<App/>}>
@@ -59,6 +60,7 @@ const router = createBrowserRouter(
       <Route path='' element={<Admin/>}/>
       <Route path='templates' element={<ManageTemplate/>}/>
       <Route path='users' element={<Users/>}/>
+      <Route path='orders' element={<Orders/>}/>
       </Route>
       {/* <Route element={<AdminLayout/>}/> */}
       </Route>

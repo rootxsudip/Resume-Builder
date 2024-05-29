@@ -137,7 +137,7 @@ export default function Resumes() {
   };
 
   return (
-    <div style={{minWidth:'300px'}}>
+    <div style={{minWidth:'300px',minHeight:'500px'}}>
     
             <div className='d-flex justify-content-center mt-5' >
                 
